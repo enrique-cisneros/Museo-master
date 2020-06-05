@@ -1,0 +1,84 @@
+﻿@model Museo.Models.Artwork
+
+@{
+    ViewBag.Title = "Details";
+}
+<hr />
+<h2 class="text-center">@Model.Nombre</h2>
+
+<div>
+    <hr />
+    <dl class="text-center">
+        <dt>
+            Nombre del Artista:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artist.Nombre)
+        </dd>
+
+        <dt>
+           Nombre de la Obra:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            Tipo de Arte:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+
+        <dt>
+            Fecha de Nacimiento:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            Descripción:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.ImgUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImgUrl)
+            </dd>*@
+
+    </dl>
+</div>
+<div class="row justify-content-center m-4">
+    <div class="">
+        <div class="card mb-3">
+            <div class="card-header bg-dark">
+                <h4 class="text-white text-center"><i class="fas fa-camera"></i> Fotografia <i class="fas fa-camera"></i></h4>
+            </div>
+            <div class="card-header">
+                @if (Model.ImgUrl == null)
+                {
+                    <img src="~/Content/img/UserUnknown.jpg" class="img-thumbnail" width="550" />
+                }
+                else if (Model.ImgUrl != null)
+                {
+                    <img src="~/Content/img/@Model.ImgUrl" alt="Alternate Text" width="350" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar a la lista", "AWD")
+</p>

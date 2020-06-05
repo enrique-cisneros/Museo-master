@@ -1,0 +1,41 @@
+﻿@model Museo.Models.Artist
+
+@{
+    ViewBag.Title = "Details";
+}
+<hr />
+<h2 class="text-center">@Model.Nombre</h2>
+
+<div>
+    <hr />
+    <dl class="text-center">
+        <dt>
+            Nombre del Artista
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            Fecha de Nacimiento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNac)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar a la lista", "AD")
+</p>

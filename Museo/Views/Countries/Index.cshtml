@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Museo.Models.Country>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Países</h2>
+
+<p>
+    @Html.ActionLink("Agrerar nuevo país", "Create")
+</p>
+<table class="table table-dark" id="Pais">
+    <thead>
+        <tr>
+            <th>
+                Nombre de Artista
+            </th>
+            <th>
+                Nombre de la Obra
+            </th>
+            <th>
+                Nombre de Pais
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="text-body">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Artist.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Artwork.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePais)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row justify-content-center m-4">
+    <img src="~/Content/img/paises.jpg" width="250" height="250">
+</div>
+
+@section  Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $('#Pais').DataTable();
+        });
+    </script>
+}
